@@ -1,0 +1,290 @@
+
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+    body {
+        margin-left: 0px;
+        font-family: "Times New Roman", Times, serif;
+    }
+    #chat_container {
+        border: 0px;
+        box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px;
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        bottom: 5px;
+        /*right: 20px;*/
+        min-height: 5%;
+        min-width: 400px;
+        border-radius: 6px;
+        padding-top: 0px;
+        max-height: 100%;
+        /* display: block; */
+        bottom: 0px;
+        background-color : #e3f5fc;
+    }
+    #chat_log {
+
+        padding: 10px;
+        border-bottom: 1px solid black;
+        margin : 10px 10px 10px 10px;
+        overflow-y: scroll;
+        height: 375px;
+        width: 100%
+        font-size: 26px;
+    }
+    #chat_input_container {
+        font-size: 10px;
+        padding: 10px;
+    }
+    #chat_input {
+    
+        padding: 2px;
+        font-size: 15px;
+        width: 100%;
+    }
+    .chat_line {
+        overflow: hidden;
+
+        width: 100%;
+        margin: 2px 0 12px 0;
+    }
+    #chat_image {
+    vertical-align: middle;
+    border: 0;
+    height : 60px;
+    width: 150px;
+    position: fixed;
+    bottom: 100px;
+    right: 55px; 
+    margin: 0;
+    z-index: 999;
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+    /*.button button5{
+        float: right;
+        border-radius: 50%;
+    }*/
+
+       /* .chat_triangle {
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        left: -18px;
+        border-width: 0 18px 13px 0;
+        border-color: transparent #ffffff transparent transparent;
+    }
+    .chat_triangle_user {
+        left: auto;
+        right: -18px;
+        border-width: 11px 14px 0 0;
+        border-color: #234b9b transparent transparent transparent;
+    } */
+    .chat_bubble, .chat_bubbleuser {
+        border-radius: 15px;
+        position: relative;
+        float: left;
+        background-color: #FFF;
+        margin-top: 10px;
+        line-height: 35px;
+        padding: 0px 7px 0px 7px;
+        margin-left: 20px;
+        font-size: 17px;
+    }
+    .chat_bubbleuser {
+        border-radius: 15px;
+        float: right;
+        margin-left: 0px;
+        margin-right: 20px;
+        background-color: #234b9b;
+        color: #FFF;
+    }
+
+    .identitydiv_uer{
+        height: 27px;
+        right: -18px;
+        border-width: 11px 14px 0 0;
+        border-color: #234b9b transparent transparent transparent;
+        text-align-last: right;
+        font-size: 13px
+    }
+
+    .identitydiv_bot{
+        height: 27px;
+        right: -18px;
+        border-width: 11px 14px 0 0;
+        border-color: #234b9b transparent transparent transparent;
+        text-align-last: left;
+        font-size: 13px
+    }
+
+
+    .userimg
+    {
+        float:right,
+    }
+
+    .botimg
+    {
+        float:"left";
+    }
+
+
+.chat-head-desktop {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.chat-head {
+    background-color: #2c4d6b;  /*#2c4d6b*/    /*#cc1c5d*/  /*#24292E*/
+    color: #fff;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: 20px 10px;
+    height: 100px;
+    line-height: 65px;
+    display: block;
+}
+
+.chatbox-headed {
+    height: 150px;
+    background-color: #2c4d6b;
+}
+.openicon span img {
+    width: 15px;
+    height: 15px;
+}
+.heading-name {
+    margin: 0;
+    font-size: 1em;
+    line-height: 45px;
+}
+
+
+#chatbotMinimize{
+    float: right;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-right : 10px;
+    margin-top: 15px;
+    text-align-last: right;
+}
+#chatbotMaximize{
+    float: right;
+    width: 30px;
+    height: 30px;
+    padding-top: 8px;
+    cursor: pointer;
+    padding-right: 10px;
+    margin-right : 10px;
+    margin-top: 15px;
+    text-align-last: right;
+}
+#chatBoxLogout{
+    float: right;
+    height: 25px;
+    width: 35px;
+    cursor: pointer;
+    margin-right : 10px;
+    margin-top: 20px;
+    text-align-last: right;
+}
+
+#header_image{
+   width: 150px;
+   height: 50px;
+   padding-top: 10px;
+   opacity: 1;
+}
+#minimizingIframe {
+    display: none;
+    box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px;
+    vertical-align: middle;
+    z-index: 999;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 404px;
+    height: 69px;
+    /* height: 104px; */
+}
+
+/*.pull_right_openicon{
+    float: right;
+    cursor: pointer;
+    text-align-last: right;
+    padding-right: 15px;
+}
+*/
+#test1 {
+    display:none;
+    vertical-align: middle;
+    border: 0px;
+    box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px;
+    position: fixed;
+    z-index: 999;
+    height: 90%;
+    width: 20%;
+    bottom: 100px;
+    top: 20px;
+    right: 20px;
+    min-height: 5%;
+    min-width: 400px;
+    border-radius: 6px;
+    padding-top: 0px;
+    max-height: 90%;
+    background-color : #e3f5fc;
+};
+
+/* #MinimizingIframe {
+    display:none;
+    vertical-align: middle;
+    border: 0px;
+    box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px;
+    position: fixed;
+    z-index: 999;
+    height: 90%;
+    width: 20%;
+    bottom: 100px;
+    top: 20px;
+    right: 20px;
+    min-height: 5%;
+    min-width: 400px;
+    border-radius: 6px;
+    padding-top: 0px;
+    max-height: 90%;
+    background-color : #e3f5fc;
+}; */
+
+
+
+/* #iframed{
+    display:none;
+    vertical-align: middle;
+    border: 0px;
+    box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px;
+    position: fixed;
+    z-index: 999;
+    height: 608px;
+    width: 404px;
+    bottom: 100px;
+    top: 20px;
+    right: 20px;
+    min-height: 5%;
+    min-width: 400px;
+    border-radius: 6px;
+    padding-top: 0px;
+    max-height: 90%;
+    
+} */

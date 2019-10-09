@@ -1,0 +1,200 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is a test page</h1>
+    <iframe
+    allow="microphone;"
+    width="350"
+    height="430"
+    src="http://127.0.0.1:8000/nav">
+    </iframe>
+</body>
+</html> -->
+
+<html><head>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="theme-color" content="#cc1c5d">
+    <link rel="manifest" href="./manifest.json">
+    <title>OSI Digital</title>
+    <noscript key="noscript">Your browser does not support JavaScript!</noscript>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Absolute Center Spinner */
+        .loading {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Transparent Overlay */
+        .loading:before {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* :not(:required) hides these rules from IE9 and below */
+        .loading:not(:required) {
+            /* hide "loading..." text */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 1500ms infinite linear;
+            -moz-animation: spinner 1500ms infinite linear;
+            -ms-animation: spinner 1500ms infinite linear;
+            -o-animation: spinner 1500ms infinite linear;
+            animation: spinner 1500ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+        }
+
+        /* Animation */
+        @-webkit-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        .fit { /* set relative picture size */
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .stop-scrolling {
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+
+<!-- <script async="async" src="https://ai.axisbank.co.in/morfeuswebsdk/libs/websdk/webSdkEvents.js"></script></head> -->
+<body class="stop-scrolling" cz-shortcut-listen="true">
+
+<!-- <img src="img/background.png" class="fit"> -->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="libs/websdk/sdk.js" id="webSdk"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="./sw.js"></script>
+<script>
+    /**
+         * To avoid caching of sdk.js, we are having the datetime parameter.
+         * sdk.js has reference to versioned chatbox.html and chatbutton.html during the build
+         * So, everytime sdk.js loads from server, when any new version iss built, 
+         * new reference for chatbox and chatbutton is updated. 
+         * 
+         * */
+        //  var dateTime = new Date().getTime();
+        // scriptLoader([{
+        //     //url: 'libs/websdk/sdk.js?version=' + dateTime,
+        //     url: 'libs/websdk/sdk.js',
+        //     id: 'webSdk'
+        // }], function() {
+        //     deployBot();
+        // });
+        $('body').addClass('stop-scrolling')
+</script>
+
+
+
+<!-- <iframe src="https://ai.axisbank.co.in/morfeuswebsdk/libs/websdk/chatButton.html?data=eyJjdXN0b21lcklkIjoiIiwiZGVza3RvcCI6eyJjaGF0V2luZG93SGVpZ2h0IjoiOTAlIiwiY2hhdFdpbmRvd1dpZHRoIjoiMzAlIiwiY2hhdFdpbmRvd1JpZ2h0IjoiMjBweCIsImNoYXRXaW5kb3dCb3R0b20iOiIyMHB4Iiwid2Vidmlld1NpemUiOiJmdWxsIiwicGFkZGluZ1RvcCI6IjBweCJ9LCJpbml0QW5kU2hvdyI6IjEiLCJzaG93SW5XZWJ2aWV3IjoiMCIsImVuZHBvaW50VXJsIjoiaHR0cHM6Ly9haS5heGlzYmFuay5jby5pbi9tb3JmZXVzL3YxL2NoYW5uZWxzIiwiZHVhbE1vZGUiOiIwIiwiZGVidWdNb2RlIjoiMCIsImRvbWFpbiI6Imh0dHBzOi8vYWkuYXhpc2JhbmsuY28uaW4iLCJiYXNlU2RrUGF0aCI6Imh0dHBzOi8vYWkuYXhpc2JhbmsuY28uaW4vbW9yZmV1c3dlYnNkay9saWJzL3dlYnNkay8iLCJib3ROYW1lIjoiYXhpcyIsImlkbGVUaW1lb3V0IjoxNjIwMDAsImRlc3Ryb3lPbkNsb3NlIjp0cnVlLCJhcGlLZXkiOiIxMjM0NTY3IiwidGltZW91dCI6MjUwMDAsImR1YWxCYW5raW5nTW9kZSI6ZmFsc2UsImF1dG9TdWdnZXN0Q29uZmlnIjp7ImVuYWJsZWQiOnRydWUsIm5vT2ZTdWdnZXN0aW9uIjozLCJub09mTGV0dGVycyI6MiwiZW5hYmxlU2VhcmNoUmVxdWVzdCI6dHJ1ZX0sImlzQWxsRmVlZGJhY2tBdmFpbGFibGUiOnRydWUsImN1c3RvbU5lZ2F0aXZlRmVlZGJhY2siOnsiZW5hYmxlZCI6dHJ1ZX0sInNob3dDcm9zc09uUG9zdGxvZ2luIjp0cnVlLCJsaXN0RGF0YUNvbmZpZyI6eyJlbmFibGVkIjp0cnVlLCJsaXN0RGF0YU1zZyI6IllvdXIgYXhpcyBiYW5rIEFjY291bnQifSwiYmFua2luZ1R5cGUiOiJQIiwiYW5hbHl0aWNzIjp7ImVuYWJsZWQiOnRydWUsImFuYWx5dGljc1Byb3ZpZGVyIjoiZ2EiLCJpZHMiOnsiZ2EiOiJVQS0xMTAxNjk0NjMtMSJ9LCJjcm9zc0RvbWFpbnMiOlsiYXhpc2JhbmsuY29tIiwiYWkuYXhpc2JhbmsuY28uaW4iXX0sInNzZUNvbmZpZyI6eyJlbmFibGVkIjp0cnVlfSwic2RrVHlwZSI6InciLCJib3RJZCI6IjIyMDB3NTkzMTEyNDE5NjQiLCJxdWlja1RhZ3MiOnsiZW5hYmxlIjp0cnVlLCJvdmVycmlkZURlZmF1bHRUYWdzIjpmYWxzZSwidGFncyI6WyJPcmRlciBDaGVxdWUgQm9vayIsIk1hbmFnZSBEZWJpdCBDYXJkIiwiVHJhbnNmZXIiLCJQYXkgQmlsbHMiLCJBY2NvdW50IEJhbGFuY2UiLCJSZWNoYXJnZSBNb2JpbGUiXX0sInJlaW5pdGlhdGVNZXNzYWdlIjoiTG9va3MgbGlrZSBzb21ldGhpbmcgd2VudCB3cm9uZy5SZWludGlhbGl6aW5nIHRoZSBjaGF0IHdpbmRvdy4iLCJsb25naXR1ZGUiOiIiLCJsYXRpdHVkZSI6IiIsInZlcnNpb24iOiIxLjMuMTgiLCJwYXJlbnREb21haW4iOiJodHRwczovL2FpLmF4aXNiYW5rLmNvLmluIn0=" id="chatButtonFrame" name="chatButtonFrame" scrolling="no" style="position: fixed; z-index: 999; height: 25.5%; bottom: 20px; right: 10px; width: 35%; min-width: 414px; max-width: 414px; border: 0px; display: none;"></iframe> -->
+<!-- <iframe src="https://ai.axisbank.co.in/morfeuswebsdk/libs/websdk/chatBox.html?data=eyJjdXN0b21lcklkIjoiIiwiZGVza3RvcCI6eyJjaGF0V2luZG93SGVpZ2h0IjoiOTAlIiwiY2hhdFdpbmRvd1dpZHRoIjoiMzAlIiwiY2hhdFdpbmRvd1JpZ2h0IjoiMjBweCIsImNoYXRXaW5kb3dCb3R0b20iOiIyMHB4Iiwid2Vidmlld1NpemUiOiJmdWxsIiwicGFkZGluZ1RvcCI6IjBweCJ9LCJpbml0QW5kU2hvdyI6IjEiLCJzaG93SW5XZWJ2aWV3IjoiMCIsImVuZHBvaW50VXJsIjoiaHR0cHM6Ly9haS5heGlzYmFuay5jby5pbi9tb3JmZXVzL3YxL2NoYW5uZWxzIiwiZHVhbE1vZGUiOiIwIiwiZGVidWdNb2RlIjoiMCIsImRvbWFpbiI6Imh0dHBzOi8vYWkuYXhpc2JhbmsuY28uaW4iLCJiYXNlU2RrUGF0aCI6Imh0dHBzOi8vYWkuYXhpc2JhbmsuY28uaW4vbW9yZmV1c3dlYnNkay9saWJzL3dlYnNkay8iLCJib3ROYW1lIjoiYXhpcyIsImlkbGVUaW1lb3V0IjoxNjIwMDAsImRlc3Ryb3lPbkNsb3NlIjp0cnVlLCJhcGlLZXkiOiIxMjM0NTY3IiwidGltZW91dCI6MjUwMDAsImR1YWxCYW5raW5nTW9kZSI6ZmFsc2UsImF1dG9TdWdnZXN0Q29uZmlnIjp7ImVuYWJsZWQiOnRydWUsIm5vT2ZTdWdnZXN0aW9uIjozLCJub09mTGV0dGVycyI6MiwiZW5hYmxlU2VhcmNoUmVxdWVzdCI6dHJ1ZX0sImlzQWxsRmVlZGJhY2tBdmFpbGFibGUiOnRydWUsImN1c3RvbU5lZ2F0aXZlRmVlZGJhY2siOnsiZW5hYmxlZCI6dHJ1ZX0sInNob3dDcm9zc09uUG9zdGxvZ2luIjp0cnVlLCJsaXN0RGF0YUNvbmZpZyI6eyJlbmFibGVkIjp0cnVlLCJsaXN0RGF0YU1zZyI6IllvdXIgYXhpcyBiYW5rIEFjY291bnQifSwiYmFua2luZ1R5cGUiOiJQIiwiYW5hbHl0aWNzIjp7ImVuYWJsZWQiOnRydWUsImFuYWx5dGljc1Byb3ZpZGVyIjoiZ2EiLCJpZHMiOnsiZ2EiOiJVQS0xMTAxNjk0NjMtMSJ9LCJjcm9zc0RvbWFpbnMiOlsiYXhpc2JhbmsuY29tIiwiYWkuYXhpc2JhbmsuY28uaW4iXX0sInNzZUNvbmZpZyI6eyJlbmFibGVkIjp0cnVlfSwic2RrVHlwZSI6InciLCJib3RJZCI6IjIyMDB3NTkzMTEyNDE5NjQiLCJxdWlja1RhZ3MiOnsiZW5hYmxlIjp0cnVlLCJvdmVycmlkZURlZmF1bHRUYWdzIjpmYWxzZSwidGFncyI6WyJPcmRlciBDaGVxdWUgQm9vayIsIk1hbmFnZSBEZWJpdCBDYXJkIiwiVHJhbnNmZXIiLCJQYXkgQmlsbHMiLCJBY2NvdW50IEJhbGFuY2UiLCJSZWNoYXJnZSBNb2JpbGUiXX0sInJlaW5pdGlhdGVNZXNzYWdlIjoiTG9va3MgbGlrZSBzb21ldGhpbmcgd2VudCB3cm9uZy5SZWludGlhbGl6aW5nIHRoZSBjaGF0IHdpbmRvdy4iLCJsb25naXR1ZGUiOiIiLCJsYXRpdHVkZSI6IiIsInZlcnNpb24iOiIxLjMuMTgiLCJwYXJlbnREb21haW4iOiJodHRwczovL2FpLmF4aXNiYW5rLmNvLmluIn0=" allow="geolocation; microphone; camera" id="chatBoxFrame" name="chatBoxFrame" scrolling="no" style="border: 0px; box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px; position: fixed; z-index: 999; height: 90%; width: 30%; bottom: 20px; right: 20px; min-height: 100%; min-width: 400px; border-radius: 6px; padding-top: 0px; max-height: 90%; display: block;">
+</iframe> -->
+<iframe src='http://127.0.0.1:5000/nav/' allow="geolocation; microphone; camera" id="chatBoxFrame" name="chatBoxFrame" scrolling="no" style="border: 0px; box-shadow: rgb(186, 186, 186) 0px 4px 8px 0px, rgb(136, 136, 136) 0px 6px 20px 0px; position: fixed; z-index: 999; height: 90%; width: 30%; bottom: 20px; right: 20px; min-height: 100%; min-width: 400px; border-radius: 6px; padding-top: 0px; max-height: 90%; display: block;">
+</iframe>
+</body>
+</html>

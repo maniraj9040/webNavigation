@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href='../static/chat.css'>
+</head>
+<body>
+    <script src='../static/chat.js' type="text/javascript" charset="utf-8" async defer></script>
+    <script src='../static/chat2.js' type="text/javascript" charset="utf-8" async defer></script>
+    <div id="chat_container">
+        <div id="chatHeader">
+            <header class="chat-head  chat-head-desktop " id="chatbox-header">
+                <section class="chat-heading">
+                    <h3 class="heading-name" style="position:relative;">
+                        <span class="pull-left" >
+                            <img src="https://osidigital.com/wp-content/uploads/2018/08/osi_logo_rgb.png" width="43px" id='header_image'>
+                        </span>
+                        <span id="headingText"></span>
+                        <span class="pull_right_openicon">
+                            <span class="closex-close"><img id="chatBoxLogout" src="https://cdn4.iconfinder.com/data/icons/pictograms-2/512/512-15-128.png" onclick="closeChatBox()"></span>
+                            <span class="minimize"><img id='chatbotMinimize' src="https://cdn3.iconfinder.com/data/icons/iconano-text-editor/512/004-Minus-256.png" onclick="hideChatBox()" ></span>       <!--onclick="hideChatBox()" -->
+                        </span>
+                    </h3>
+                </section
+            </header>
+        </div>
+        <div id="chat_log" >
+            
+        </div>
+        <div id="chat_input_container">
+            <div><input id="chat_input"  placeholder="How can i help you?"/></div>
+        </div>
+    </div>
+</body>
+</html>

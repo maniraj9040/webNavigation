@@ -1,0 +1,301 @@
+<html><head>
+        <meta name="google" content="notranslate">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <!--  external libraries js -->
+         <script>
+            window.dataLayer = window.dataLayer || [];
+        </script>
+    </head>
+
+    <body class="axis" cz-shortcut-listen="true">
+
+        <div class="main-container" id="chatBoxContainer">    <div class="chat-menu">
+        <div class="chat-menu__header">
+            <button class="back-btn" onclick="queryBack()" style="display: none;">
+                <img src="images/default/arrow-click.png" class="img-responsive">
+            </button>
+            <div id="popularQuery-category"></div>
+            <div class="chat-menu__title">What would you like to do?</div>
+        </div>
+        <div class="chat-menu__content">
+            <div id="popularquery"></div>
+        </div>
+    </div>
+    <div id="chatHeader">
+                    <header class="chat-head  chat-head-desktop " id="chatbox-header">
+                        <section class="chat-heading">
+                            <h3 class="heading-name" style="position:relative;">
+                                <span class="pull-left">
+                                    <img src="images/default/axis_aha.png" width="43px">
+                                </span>
+                                <span id="headingText"></span>
+                                <span class="pull-right openicon"><span class="minimize"><img src="images/minimize.svg" onclick="hideChatBox(event)"></span>
+                                <span class="closex-close"><img id="chatBoxLogout" src="images/close.svg" onclick="logOutChat(event)"></span></span>
+                    
+                            </h3>
+                        </section>
+                    </header>
+                    <div class="lastLogin">
+                        <div class="lockIcon">
+                            <img src="images/default/lock_icon.svg">
+                        </div><span class="secureLogin">High Secured Login </span><span id="lastLogin">Your last login was on 06/27/2017 12:53:31</span>
+                    </div>    </div>
+    <div class="messageAndFooter">
+        <div class="session-timeout session-timeout-desktop"></div>
+        <section class="messages" id="messages"></section>
+        
+        
+        <footer class="footer-form footer-form-desktop">
+            <div id="nav_container" class="flex-align-center paddingtb5" style="display: flex;">
+                <div class="flexOrder2 scrollRemove">
+                    <ul class="scrollTags list-inline flexOrder2" id="quickTagScroll" onclick="quickinit(event)"><li>Order Cheque Book</li><li>Manage Debit Card</li><li>Transfer</li><li>Pay Bills</li><li>Account Balance</li><li>Recharge Mobile</li></ul>
+                </div>
+                <div class="arrowBtns flexOrder1" id="prev_nav" onclick="moveLeft();">
+                    <img src="images/default/left.svg" alt="">
+                </div>
+                <div class="arrowBtns flexOrder3" id="next_nav" onclick="moveRight();">
+                    <img src="images/default/right.svg" alt="">
+                </div>
+            </div>    <div class="input-suggestions disable-copy" id="suggestion-box" onclick="searchClick(event)" style="display: none;"></div>
+            <div class="display-flex footerInput">
+                <div class="footer-menu">
+                    <!-- <button class="btn open-menu" onclick="handlePopularQueryClicks();showHidePopularQuery();">
+                        <img src="images/default/persistent.png" class="img-responsive" style="width: 30px; height: 20px;">
+                    </button> -->
+                    <button class="menu-btn" onclick="toggleChatMenu();">
+                        <img src="images/default/persistent.png" class="img-responsive" style="width: 25px; height: 25px;">
+                    </button>
+                </div>
+                <input type="text" placeholder="May I help you?" id="query" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="-1" onkeypress="querykeypress(event)" onkeyup="querykeyup(event)"> 
+                <button class="image-button mic-off" id="micBtn" type="button" onclick="handleSpeech()"></button> 
+                <div id="send" type="button" class="btn btn_send" onclick="send()" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g id="flight" class="flightanimax"><polygon points="12.865,14.525 12.865,47.05 52.885,50 12.865,52.95 12.865,85.475 87.135,50  "></polygon></g></svg></div>
+            </div>
+        </footer>
+        <style>
+            .input-suggestions {
+                position: absolute;
+                bottom: 50px;
+                background-color: #fff;
+                min-width: 100%;
+            }
+            
+            .input-suggestions .panel-body {
+                padding: 10px 15px;
+                border-bottom: 1px solid #ccc;
+                font-size: 12px;
+            }
+            
+            .input-suggestions .panel-body:hover {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+        </style>    </div>
+</div>
+        <!-- permission modal -->
+        <div class="modal fade permission-popup" id="permission-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body row">
+                            <div class="permission-image col-md-3 col-xs-3 col-xs-3"></div>
+                            <div class="col-md-9 col-xs-9 col-xs-9">Sign up for notifications</div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="deny-permission" type="button" class="btn btn-default" data-dismiss="modal">No Thanks</button>
+                            <button id="allow-permission" type="button" class="btn btn-primary" data-dismiss="modal">Allow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- webview Modal -->
+        <div id="webviewModal" class="customSlideup modal fade webview-modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id="webview-header" class="modal-header" style="padding: 0px; border: 0px;"><div class="webviewHeader-wrapper-axis">
+	<button onclick="closewebview(event)" type="button" class="close" data-dismiss="modal">×</button>
+</div>
+</div>
+                    <div class="modal-body">
+                        <iframe id="webviewFrame" name="webviewFrame" width="100%" height="100%" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Upload Modal -->
+        <div id="editImageModal" class="modal fade" role="dialog">
+            <div class="modal-dialog full">
+                <div class="modal-content">
+                    <div class="modal-header" style="display:none">
+
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body" id="editImageModal-body">
+                        <img id="profile" alt="profile image">
+                        <button id="croppedResult" class="btn btn-primary" style="position: absolute;bottom: -3%; left: 38%">Result</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  Audit Info Modal -->
+        <div id="auditInfoModal" class="modal fade" role="dialog" style="">
+            <div class="modal-dialog modalWidth" style="top:2% !important;transform: none !important">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <!-- <h4 class="modal-title">Debug Info</h4> -->
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div style="display: none;">
+                            <p>
+                                <span>Intent : </span>
+                                <span id='intent' style="word-wrap: break-word;"></span>
+                            </p>
+                            <p>
+                                <span>Sub Intent : </span>
+                                <span id='subIntent' style="word-wrap: break-word;"></span>
+                            </p>
+                            <p>
+                                <span>Entities : </span>
+                                <span id='entities' style="word-wrap: break-word;"></span>
+                            </p>
+                        </div> -->
+
+                        <ul class="nav nav-tabs" id="debugTabHeads">
+                        </ul>
+
+                        <div class="tab-content" id="debugTabContents">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div id="feedbackModal" class="modal fade" role="dialog" style="">
+            <div class="modal-dialog modalWidth">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="closeImg close" data-dismiss="modal"></span>
+                        <h4 class="modal-title">Please help us improve</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="" id="" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit" id="nayFeedbackBtn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade logout-confirm-modal" id="logout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h5>Are you sure you want to logout?</h5></div>
+                        <div class="modal-footer">
+                            <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-primary" id="logOutConfirm" onclick="logOut()">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade userDevMode" id="userDevMode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+            <div class="modal-dialog" role="document" style="position: fixed;top: 50%;transform: translateY(-50%);width:94%;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <div class="btn-group btn-group-custom" data-toggle="btns" id="teachCategory">
+                                    <a class="btn btn-lg btn-default active" href="#UsersmallTalk" data-toggle="tab" aria-expanded="true"> Small Talk</a>
+                                    <a class="btn btn-lg btn-default" href="#Userfaq" data-toggle="tab" aria-expanded="true">FAQ</a>
+                                    <a class="btn btn-lg btn-default" href="#Userbanking" data-toggle="tab" aria-expanded="true">Banking</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="UsersmallTalk">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <textarea name="" id="smallTalkQuestion" rows="4" class="form-control" placeholder="Hi"></textarea>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <p class="activeBlue">Amended Answers</p>
+                                        <textarea name="smallTalkAnswer" id="smallTalkAnswer" rows="4" class="form-control" placeholder="How are you"></textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Userfaq">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <select name="" id="faqCategory" class="form-control">
+                                            <!-- <option value="" class="hide">Faq Category</option> -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <select name="" id="faqQuestions" class="form-control">
+                                            <option value="" class="hide">FAQ Question</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <textarea name="" id="faqUserQuestion" rows="3" class="form-control" placeholder="{{i18n 'APPLY_LOAN'}}"></textarea>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <p class="activeBlue">FAQ Answer</p>
+                                        <textarea name="" id="faqUserAnswer" rows="3" class="form-control" placeholder="{{i18n 'CALL'}}"></textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Userbanking">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <select name="" id="intentCategory" class="form-control">
+                                            <!-- <option value="" class="hide">Intent Category</option> -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <select name="" id="intents" class="form-control">
+                                            <option value="" class="hide">Intent</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <p class="activeBlue">Intent</p>
+                                        <textarea name="" id="bankingUserIntent" rows="3" class="form-control" placeholder="{{i18n 'TRANSFER'}}"></textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     <!-- Success Failure -->
+    <div id="snackbar"></div>
+    <div id="snackbarfailed"></div>
+
+    
+
+
+</body></html>
